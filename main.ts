@@ -11,11 +11,9 @@ pins.setPull(DigitalPin.P2, PinPullMode.PullUp)
 basic.forever(function () {
     if (pins.digitalReadPin(DigitalPin.P1) == 1 && pins.digitalReadPin(DigitalPin.P2) == 0) {
         wuKong.setAllMotor(-40, 0)
-        if (pins.digitalReadPin(DigitalPin.P1) == 0 && pins.digitalReadPin(DigitalPin.P2) == 1) {
-            wuKong.setAllMotor(1, -39)
-        }
-        if (pins.digitalReadPin(DigitalPin.P1) == 1 && pins.digitalReadPin(DigitalPin.P2) == 1) {
-            wuKong.setAllMotor(-65, -65)
-        }
+    } else if (pins.digitalReadPin(DigitalPin.P1) == 0 && pins.digitalReadPin(DigitalPin.P2) == 1) {
+        wuKong.setAllMotor(1, -40)
+    } else if (pins.digitalReadPin(DigitalPin.P1) == 0 && pins.digitalReadPin(DigitalPin.P2) == 0) {
+        wuKong.setAllMotor(-65, -65)
     }
 })
